@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Видео без оверлея на фоне сайта</title>
+</head>
+
+<body>
+    <div id="content">
+
+    </div>
+
+    <div id="player">
+        <script src="https://www.youtube.com/player_api"></script>
+    </div>
+
+    
+    
+    <script>
+        var player;
+
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('player', {
+                videoId: 'BBRrbRl9dhQ',
+                playerVars: {
+                    height: '1080',
+                    width: '1920',
+                    autoplay: 1,
+                    controls: 0,
+                    showinfo: 0,
+                    modestbranding: 1,
+                    loop: 1,
+                    playlist: 'BBRrbRl9dhQ',
+                    disablekb: 1,
+                    enablejsapi: 1,
+                    iv_load_policy: 3,
+                    rel: 0,
+                    fs: 0,
+                    autohide: 0,
+                    playsinline: 0,
+                    mute: 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                }
+            });
+        }
+        function onPlayerReady(event) {
+            event.target.playVideo();
+            event.target.mute();
+            event.target.setPlaybackQuality('hd2160');
+        }
+    </script>
+</body>
+
+</html>
